@@ -4,6 +4,7 @@ using System.Collections.Generic; // Necesario para usar Listas
 
 public class Meta : MonoBehaviour
 {
+    public AudioSource metaSound; //Metemos sonido de meta CAARLYWHY
     public GameManager gameManager;
     
     [Header("Configuración del Salto")]
@@ -32,6 +33,10 @@ public class Meta : MonoBehaviour
             {
                 canicasQueTerminaron.Add(rb);
                 gameManager.CruzarMeta();
+                if (metaSound != null && !metaSound.isPlaying)
+                {
+                    metaSound.Play();
+                }
                 Debug.Log("Canica registrada para saltar.");
             }
         }
